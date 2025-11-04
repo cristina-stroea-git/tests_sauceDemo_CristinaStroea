@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.11.5 on win32)" generated="20251103 22:28:13.257" rpa="false" schemaversion="3">
+<suite id="s1" name="Products tests" source="C:\Users\eanicra\OneDrive - Ericsson\Desktop\pers\test_sauceDemo_CristinaStroea\Tests\Products_tests.robot">
+<test id="s1-t1" name="Products page - menu list is as expected" line="29">
+<kw name="open souceDemo homepage" library="resources">
+<kw name="Create custom Webdriver" library="resources">
+<kw name="Evaluate" library="BuiltIn">
+<var>${OPTIONS}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20251103 22:28:13.558" level="INFO">${OPTIONS} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000025E38E64F90&gt;</msg>
+<status status="PASS" starttime="20251103 22:28:13.558" endtime="20251103 22:28:13.558"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${OPTIONS}</arg>
+<arg>add_argument</arg>
+<arg>--incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20251103 22:28:13.558" endtime="20251103 22:28:13.558"/>
+</kw>
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>options=${OPTIONS}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20251103 22:28:13.558" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20251103 22:28:13.558" endtime="20251103 22:28:16.823"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:13.558" endtime="20251103 22:28:16.823"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20251103 22:28:16.823" endtime="20251103 22:28:16.871"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20251103 22:28:16.872" level="INFO">Opening url 'https://saucedemo.com'</msg>
+<status status="PASS" starttime="20251103 22:28:16.871" endtime="20251103 22:28:17.737"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:13.547" endtime="20251103 22:28:17.737"/>
+</kw>
+<kw name="Login" library="Login_page">
+<arg>${Alluser_Password}</arg>
+<kw name="Fill the login Form" library="Login_page">
+<arg>${password}</arg>
+<kw name="Set Username Based On Tag" library="resources">
+<arg>${ACTIVE_USER}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${tag}'=='standard_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_standard}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='locked_out_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_locked}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='problem_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_problem}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='performance_glitch_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_performance}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='error_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_error}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='visual_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_visual}</arg>
+<arg>ELSE</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>unknown_user</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${username}</arg>
+<arg>${userName_standard}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20251103 22:28:17.737" level="INFO">${username} = standard_user</msg>
+<status status="PASS" starttime="20251103 22:28:17.737" endtime="20251103 22:28:17.737"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:17.737" endtime="20251103 22:28:17.737"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:17.737" endtime="20251103 22:28:17.737"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${xpath_user_name}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20251103 22:28:17.737" endtime="20251103 22:28:17.799"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${xpath_user_name}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20251103 22:28:17.800" level="INFO">Typing text 'standard_user' into text field 'xpath://*[@data-test="username"]'.</msg>
+<status status="PASS" starttime="20251103 22:28:17.800" endtime="20251103 22:28:18.039"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${xpath_password}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20251103 22:28:18.039" endtime="20251103 22:28:18.079"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${xpath_password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20251103 22:28:18.080" level="INFO">Typing text 'secret_sauce' into text field 'xpath://*[@data-test="password"]'.</msg>
+<status status="PASS" starttime="20251103 22:28:18.079" endtime="20251103 22:28:18.202"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:17.737" endtime="20251103 22:28:18.202"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${xpath_login_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20251103 22:28:18.202" level="INFO">Clicking button 'xpath://input[contains(@value,"Login")]'.</msg>
+<status status="PASS" starttime="20251103 22:28:18.202" endtime="20251103 22:28:18.412"/>
+</kw>
+<kw name="All pages - menu - Reset App" library="resources">
+<kw name="All pages - open menu" library="resources">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${AllPages_xpath_MenuButton}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20251103 22:28:18.415" endtime="20251103 22:28:18.460"/>
+</kw>
+<kw name="Click On Xpath" library="resources">
+<arg>${AllPages_xpath_MenuButton}</arg>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20251103 22:28:18.499" level="INFO">Element 'xpath://button[@id="react-burger-menu-btn"]' is displayed.</msg>
+<status status="PASS" starttime="20251103 22:28:18.460" endtime="20251103 22:28:18.499"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${xpath_clean}</var>
+<arg>${xpath}</arg>
+<arg>xpath:/</arg>
+<arg>/</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20251103 22:28:18.499" level="INFO">${xpath_clean} = //button[@id="react-burger-menu-btn"]</msg>
+<status status="PASS" starttime="20251103 22:28:18.499" endtime="20251103 22:28:18.499"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>document.evaluate('${xpath_clean}', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20251103 22:28:18.499" level="INFO">Executing JavaScript:
+document.evaluate('//button[@id="react-burger-menu-btn"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<status status="PASS" starttime="20251103 22:28:18.499" endtime="20251103 22:28:18.499"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:18.460" endtime="20251103 22:28:18.514"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20251103 22:28:19.514" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20251103 22:28:18.514" endtime="20251103 22:28:19.514"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:18.415" endtime="20251103 22:28:19.514"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${AllPages_xpath_Menu_ResetApp}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20251103 22:28:19.558" level="INFO">Element 'xpath:.//*[@data-test="reset-sidebar-link"]' is displayed.</msg>
+<status status="PASS" starttime="20251103 22:28:19.514" endtime="20251103 22:28:19.558"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${AllPages_xpath_Menu_ResetApp}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20251103 22:28:19.558" level="INFO">Clicking element 'xpath:.//*[@data-test="reset-sidebar-link"]'.</msg>
+<status status="PASS" starttime="20251103 22:28:19.558" endtime="20251103 22:28:19.775"/>
+</kw>
+<kw name="All pages - Menu - Close menu" library="resources">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${AllPages_xpath_Menu_CloseButton}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20251103 22:28:19.904" level="INFO">Element 'xpath://*[@data-test="close-menu"]' is displayed.</msg>
+<status status="PASS" starttime="20251103 22:28:19.775" endtime="20251103 22:28:19.904"/>
+</kw>
+<kw name="Click On Xpath" library="resources">
+<arg>${AllPages_xpath_Menu_CloseButton}</arg>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20251103 22:28:19.958" level="INFO">Element 'xpath://*[@data-test="close-menu"]' is displayed.</msg>
+<status status="PASS" starttime="20251103 22:28:19.905" endtime="20251103 22:28:19.959"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${xpath_clean}</var>
+<arg>${xpath}</arg>
+<arg>xpath:/</arg>
+<arg>/</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20251103 22:28:19.959" level="INFO">${xpath_clean} = //*[@data-test="close-menu"]</msg>
+<status status="PASS" starttime="20251103 22:28:19.959" endtime="20251103 22:28:19.959"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>document.evaluate('${xpath_clean}', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20251103 22:28:19.961" level="INFO">Executing JavaScript:
+document.evaluate('//*[@data-test="close-menu"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<status status="PASS" starttime="20251103 22:28:19.960" endtime="20251103 22:28:19.981"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:19.904" endtime="20251103 22:28:19.982"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:19.775" endtime="20251103 22:28:19.982"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:18.415" endtime="20251103 22:28:19.982"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:17.737" endtime="20251103 22:28:19.983"/>
+</kw>
+<kw name="Validate Login" library="Login_page">
+<kw name="Set Username Based On Tag" library="resources">
+<arg>${ACTIVE_USER}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${tag}'=='standard_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_standard}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='locked_out_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_locked}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='problem_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_problem}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='performance_glitch_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_performance}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='error_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_error}</arg>
+<arg>ELSE IF</arg>
+<arg>'${tag}'=='visual_user'</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>${userName_visual}</arg>
+<arg>ELSE</arg>
+<arg>Set Test Variable</arg>
+<arg>${username}</arg>
+<arg>unknown_user</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${username}</arg>
+<arg>${userName_standard}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20251103 22:28:19.987" level="INFO">${username} = standard_user</msg>
+<status status="PASS" starttime="20251103 22:28:19.986" endtime="20251103 22:28:19.987"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:19.984" endtime="20251103 22:28:19.987"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:19.983" endtime="20251103 22:28:19.988"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${ACTIVE_USER}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251103 22:28:19.989" level="INFO">standard_user</msg>
+<status status="PASS" starttime="20251103 22:28:19.988" endtime="20251103 22:28:19.989"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${ACTIVE_USER}'=='standard_user'</arg>
+<arg>Login Succeed and Products Page is displayed</arg>
+<arg>ELSE IF</arg>
+<arg>'${ACTIVE_USER}'=='locked_out_user'</arg>
+<arg>Login Should Be Locked and locked error message returned</arg>
+<arg>ELSE IF</arg>
+<arg>'${ACTIVE_USER}'=='problem_user'</arg>
+<arg>Login Succeed and Products Page is displayed</arg>
+<arg>ELSE IF</arg>
+<arg>'${ACTIVE_USER}'=='performance_glitch_user'</arg>
+<arg>Login Succeed and Products Page is displayed</arg>
+<arg>ELSE IF</arg>
+<arg>'${ACTIVE_USER}'=='error_user'</arg>
+<arg>Login Succeed and Products Page is displayed</arg>
+<arg>ELSE IF</arg>
+<arg>'${ACTIVE_USER}'=='visual_user'</arg>
+<arg>Login Succeed and Products Page is displayed</arg>
+<arg>ELSE</arg>
+<arg>Fail</arg>
+<arg>Unknown user: ${ACTIVE_USER}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Login Succeed and Products Page is displayed" library="Login_page">
+<kw name="Products page is displayed" library="Products_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${Products_productsTable}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20251103 22:28:19.995" endtime="20251103 22:28:20.043"/>
+</kw>
+<kw name="Page title is correct" library="resources">
+<arg>${Products_PageTitle}</arg>
+<arg>${Products_Page_name}</arg>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${page_title}</var>
+<arg>${xpathPageTitle}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20251103 22:28:20.070" level="INFO">${page_title} = &lt;selenium.webdriver.remote.webelement.WebElement (session="7d4d23efa375484961c3d6221cf3c7d0", element="f.6893F63146FC57DD164AC892A98C9548.d.C4B54E8AAFF8FA85471FF22BB86B0A83.e.31")&gt;</msg>
+<status status="PASS" starttime="20251103 22:28:20.044" endtime="20251103 22:28:20.070"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${page_title.text}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251103 22:28:20.082" level="INFO">Products</msg>
+<status status="PASS" starttime="20251103 22:28:20.071" endtime="20251103 22:28:20.082"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${page_title.text}</arg>
+<arg>${Page_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20251103 22:28:20.082" endtime="20251103 22:28:20.106"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:20.043" endtime="20251103 22:28:20.106"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:19.994" endtime="20251103 22:28:20.106"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:19.993" endtime="20251103 22:28:20.106"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:19.991" endtime="20251103 22:28:20.106"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:19.983" endtime="20251103 22:28:20.114"/>
+</kw>
+<kw name="All pages - Menu list has expected items" library="resources">
+<kw name="All pages - open menu" library="resources">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${AllPages_xpath_MenuButton}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20251103 22:28:20.114" endtime="20251103 22:28:20.151"/>
+</kw>
+<kw name="Click On Xpath" library="resources">
+<arg>${AllPages_xpath_MenuButton}</arg>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${xpath}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20251103 22:28:20.178" level="INFO">Element 'xpath://button[@id="react-burger-menu-btn"]' is displayed.</msg>
+<status status="PASS" starttime="20251103 22:28:20.151" endtime="20251103 22:28:20.178"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${xpath_clean}</var>
+<arg>${xpath}</arg>
+<arg>xpath:/</arg>
+<arg>/</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20251103 22:28:20.178" level="INFO">${xpath_clean} = //button[@id="react-burger-menu-btn"]</msg>
+<status status="PASS" starttime="20251103 22:28:20.178" endtime="20251103 22:28:20.178"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>document.evaluate('${xpath_clean}', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20251103 22:28:20.178" level="INFO">Executing JavaScript:
+document.evaluate('//button[@id="react-burger-menu-btn"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click();
+Without any arguments.</msg>
+<status status="PASS" starttime="20251103 22:28:20.178" endtime="20251103 22:28:20.217"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:20.151" endtime="20251103 22:28:20.217"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20251103 22:28:21.217" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20251103 22:28:20.217" endtime="20251103 22:28:21.217"/>
+</kw>
+<status status="PASS" starttime="20251103 22:28:20.114" endtime="20251103 22:28:21.217"/>
+</kw>
+<kw name="All pages - menu is displayed (and items)" library="resources">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${AllPages_xpath_Menu_CloseButton}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20251103 22:28:26.715" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-71.png"&gt;&lt;img src="selenium-screenshot-71.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20251103 22:28:26.715" level="FAIL">Element 'xpath://*[@data-test="close-menu"]' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20251103 22:28:21.217" endtime="20251103 22:28:26.721"/>
+</kw>
+<status status="FAIL" starttime="20251103 22:28:21.217" endtime="20251103 22:28:26.721"/>
+</kw>
+<kw name="All pages - menu - all links are displayed in the menu" library="resources">
+<status status="NOT RUN" starttime="20251103 22:28:26.721" endtime="20251103 22:28:26.721"/>
+</kw>
+<status status="FAIL" starttime="20251103 22:28:20.114" endtime="20251103 22:28:26.729"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" starttime="20251103 22:28:26.729" endtime="20251103 22:28:26.732"/>
+</kw>
+<doc>This test opens Products Page and validates menu button
+Expected results: menu button is displayed properly
+.</doc>
+<tag>error_user</tag>
+<tag>performance_glitch_user</tag>
+<tag>problem_user</tag>
+<tag>standard_user</tag>
+<tag>visual_user</tag>
+<status status="FAIL" starttime="20251103 22:28:13.547" endtime="20251103 22:28:26.732">Element 'xpath://*[@data-test="close-menu"]' not visible after 5 seconds.</status>
+</test>
+<doc>To validate the login form</doc>
+<status status="FAIL" starttime="20251103 22:28:13.257" endtime="20251103 22:28:26.732"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">error_user</stat>
+<stat pass="0" fail="1" skip="0">performance_glitch_user</stat>
+<stat pass="0" fail="1" skip="0">problem_user</stat>
+<stat pass="0" fail="1" skip="0">standard_user</stat>
+<stat pass="0" fail="1" skip="0">visual_user</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Products tests">Products tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
